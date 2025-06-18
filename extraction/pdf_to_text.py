@@ -74,9 +74,6 @@ def extract_text_from_document(file_path):
         return f"Unsupported file type: {file_extension}"
 
 if __name__ == "__main__":
-    # Remove or comment out the dummy file creation if you only want to process user-provided files
-    # doc = Document()
-    # ... (dummy file creation code) ...
 
     while True:
         file_path = input("Enter the full path to the document,if u selected copy as path please remove the double codes (or 'q' to quit): ")
