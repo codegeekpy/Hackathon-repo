@@ -1,0 +1,36 @@
+Chapter: Process Management in Operating Systems
+
+A process is a program in execution. The execution of a process must progress in a sequential fashion. A process includes the program counter, stack, data section, and heap. The state of a process is defined by its current activity. The five process states are: New, Ready, Running, Waiting, and Terminated.
+
+Each process is represented in the OS by a Process Control Block (PCB), which contains information such as:
+- Process state
+- Program counter
+- CPU registers
+- Memory limits
+- List of open files
+
+Process creation can happen via system calls like `fork()` in UNIX. The parent and child processes share different degrees of resources depending on the OS implementation.
+
+Context switching occurs when the CPU switches from one process to another. It involves saving the context of the currently running process and loading the context of the next scheduled process. This introduces overhead but is necessary for multitasking.
+
+Interprocess Communication (IPC) allows processes to exchange data and synchronize execution. IPC mechanisms include:
+1. Shared memory: Processes share a region of memory and use synchronization primitives like semaphores.
+2. Message passing: Processes exchange messages using system calls.
+
+Race conditions can occur when multiple processes access shared data simultaneously. Mutual exclusion (mutex) and synchronization tools (like semaphores and monitors) help avoid inconsistencies.
+
+Deadlock is a situation where a group of processes are waiting on each other in a circular chain, preventing further execution. Necessary conditions for deadlock:
+- Mutual exclusion
+- Hold and wait
+- No preemption
+- Circular wait
+
+Strategies for handling deadlock include:
+- Prevention: Structuring the system to negate one of the conditions.
+- Avoidance: Using algorithms like Banker's Algorithm to ensure a safe state.
+- Detection & Recovery: Allow deadlocks and recover from them using rollback or killing processes.
+
+Modern operating systems like Linux and Windows implement multithreaded process models to improve performance. Threads share code and data but have their own registers and stack, reducing context-switching overhead and improving responsiveness.
+
+Example case:
+Suppose a multi-threaded web server is handling client requests via a thread pool. What challenges can arise in terms of synchronization, and how can deadlocks be avoided when multiple threads share database connections and file I/O buffers?
