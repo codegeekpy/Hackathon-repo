@@ -2,7 +2,7 @@ import google.generativeai as genai
 import os
 import json
 import re
-os.environ["Google_API_KEY"]="AIzaSyDRxSU7MUViPmO6AcPXfPOBQleioBgEYHQ"
+os.environ["Google_API_KEY"]="your-api"
 
 
 
